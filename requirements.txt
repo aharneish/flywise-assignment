@@ -1,0 +1,17 @@
+fastapi
+uvicorn[standard]
+pydantic
+pydantic-settings
+python-dotenv
+groq==1.0.0
+transformers
+torch
+scikit-learn
+numpy
+spacy>=3.7
+sentence-transformers
+faiss-cpu
+python-multipart
+nltk
+# en-core-web-sm>=3.7
+httpx==0.28.1
