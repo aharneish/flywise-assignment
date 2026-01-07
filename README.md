@@ -1,17 +1,12 @@
-# AI-Powered Text Intelligence API
-
-A production-ready NLP API built with FastAPI and Groq AI, featuring sentiment analysis, text summarization, and semantic search capabilities.
-
-## 🚀 Features
+## Features
 
 * **Sentiment Analysis** : Analyze text sentiment (positive/negative/neutral) with confidence scores and extract top 5 keywords
-* **Text Summarization** : Generate AI-powered summaries using Groq's LLM
+* **Text Summarization** : Generate AI-powered summaries using Groq
 * **Semantic Search** : Store and search documents using FAISS vector database with sentence embeddings
-* **RESTful API** : Clean, well-documented FastAPI endpoints
 * **Docker Support** : Fully containerized for easy deployment
 * **Swagger UI** : Interactive API documentation at `/docs`
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 * **Framework** : FastAPI
 * **LLM** : Groq API (openai/gpt-oss-120b)
@@ -20,13 +15,13 @@ A production-ready NLP API built with FastAPI and Groq AI, featuring sentiment a
 * **Vector Database** : FAISS
 * **Containerization** : Docker
 
-## 📋 Prerequisites
+## Prerequisites
 
 * Python 3.8+
 * Docker (optional)
 * Groq API Key ([Get one here](https://console.groq.com))
 
-## 🔧 Installation
+## Installation
 
 ### Option 1: Local Setup
 
@@ -124,14 +119,14 @@ bash
 docker-compose up -d
 ```
 
-## 📚 API Documentation
+## API Documentation
 
 Once running, visit:
 
 * **Swagger UI** : [http://localhost:8000/docs](http://localhost:8000/docs)
 * **ReDoc** : [http://localhost:8000/redoc](http://localhost:8000/redoc)
 
-## 🔍 API Endpoints
+## Sample data for API Endpoints
 
 ### 1. Sentiment Analysis
 
@@ -312,102 +307,7 @@ json
 }
 ```
 
-### 6. Health Check
-
-**GET** `/api/v1/health`
-
-Check API health status.
-
-**Response:**
-
-json
-
-```json
-{
-"status":"healthy",
-"version":"1.0.0",
-"message":"AI Text Intelligence API is running"
-}
-```
-
-## 🧪 Testing
-
-### Manual Testing
-
-1. Start the server
-2. Visit [http://localhost:8000/docs](http://localhost:8000/docs)
-3. Use the interactive Swagger UI to test endpoints
-
-### Python Script Testing
-
-python
-
-```python
-import requests
-
-BASE_URL ="http://localhost:8000/api/v1"
-
-# Test sentiment analysis
-response = requests.post(
-f"{BASE_URL}/analyze",
-    json={"text":"This is amazing!"}
-)
-print(response.json())
-
-# Test summarization
-response = requests.post(
-f"{BASE_URL}/summarize",
-    json={
-"text":"Long text here...",
-"max_length":100
-}
-)
-print(response.json())
-
-# Add document
-response = requests.post(
-f"{BASE_URL}/add-document",
-    json={
-"text":"Machine learning is a subset of AI",
-"metadata":{"topic":"AI"}
-}
-)
-print(response.json())
-
-# Search
-response = requests.post(
-f"{BASE_URL}/semantic-search",
-    json={"query":"artificial intelligence","top_k":3}
-)
-print(response.json())
-```
-
-## 📁 Project Structure
-
-```
-ai-text-intelligence-api/
-├── app/
-│   ├── __init__.py
-│   ├── main.py              # FastAPI application
-│   ├── config.py            # Configuration settings
-│   ├── models.py            # Pydantic models
-│   ├── services/
-│   │   ├── __init__.py
-│   │   ├── sentiment_service.py      # Sentiment analysis
-│   │   ├── summarization_service.py  # Text summarization
-│   │   └── semantic_search_service.py # Vector search
-│   └── routes/
-│       ├── __init__.py
-│       └── api.py           # API endpoints
-├── faiss_index/             # FAISS index storage (created at runtime)
-├── requirements.txt         # Python dependencies
-├── Dockerfile              # Docker configuration
-├── .env.example            # Environment variables template
-├── .gitignore
-└── README.md
-```
-
-## 🔒 Environment Variables
+## Environment Variables
 
 Create a `.env` file with:
 
@@ -418,7 +318,7 @@ GROQ_API_KEY=your_groq_api_key_here
 ENVIRONMENT=development
 ```
 
-## 🚀 Deployment
+## Deployment
 
 ### Docker Deployment
 
@@ -429,15 +329,7 @@ docker build -t ai-text-api .
 docker run -d -p 8000:8000 -e GROQ_API_KEY=your_key ai-text-api
 ```
 
-### Cloud Deployment Options
-
-* **AWS ECS/Fargate** : Deploy container to AWS
-* **Google Cloud Run** : Serverless container deployment
-* **Azure Container Instances** : Quick container deployment
-* **Heroku** : Use heroku.yml for container deployment
-* **DigitalOcean App Platform** : Easy container deployment
-
-## 🎯 Key Features Implementation
+## Key Features Implementation
 
 ### Sentiment Analysis
 
@@ -461,44 +353,3 @@ docker run -d -p 8000:8000 -e GROQ_API_KEY=your_key ai-text-api
 * Metadata support
 * Similarity scoring
 
-## 🔧 Performance Optimization
-
-* Caching of ML models
-* Efficient vector operations with FAISS
-* Async API endpoints
-* Connection pooling
-* Lightweight embedding model (all-MiniLM-L6-v2)
-
-## 📝 Notes
-
-* The FAISS index persists data in the `faiss_index/` directory
-* First request may be slower due to model loading
-
-## 🎓 Assignment Completion
-
-This project fulfills all requirements:
-
-✅ Sentiment Analysis with keyword extraction
-
-✅ Text Summarization using Transformer (openai/gpt-oss-120b)
-
-✅ Semantic Search with FAISS vector database
-
-✅ FastAPI with Pydantic models
-
-✅ Docker containerization
-
-✅ Swagger UI documentation at `localhost:8000/docs`
-
-✅ Clean code structure and documentation
-
-✅ Production-ready deployment setup
-
-**Bonus Features:**
-
-* Persistent FAISS index
-* Metadata support for documents
-* Health check endpoint
-* Comprehensive error handling
-* RESTful API design
-* Interactive documentation
