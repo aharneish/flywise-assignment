@@ -14,7 +14,7 @@ A production-ready NLP API built with FastAPI and Groq AI, featuring sentiment a
 ## 🛠️ Tech Stack
 
 * **Framework** : FastAPI
-* **LLM** : Groq API (Mixtral-8x7b)
+* **LLM** : Groq API (openai/gpt-oss-120b)
 * **NLP** : spaCy, NLTK, scikit-learn
 * **Embeddings** : Sentence Transformers (all-MiniLM-L6-v2)
 * **Vector Database** : FAISS
@@ -448,7 +448,7 @@ docker run -d -p 8000:8000 -e GROQ_API_KEY=your_key ai-text-api
 
 ### Text Summarization
 
-* Powered by Groq's Mixtral-8x7b model
+* Powered by Groq's openai/gpt-oss-120b model
 * Configurable summary length
 * Maintains context and key information
 * Fast processing times
@@ -473,8 +473,6 @@ docker run -d -p 8000:8000 -e GROQ_API_KEY=your_key ai-text-api
 
 * The FAISS index persists data in the `faiss_index/` directory
 * First request may be slower due to model loading
-* Groq API has rate limits - check your quota
-* For production, consider adding authentication and rate limiting
 
 ## 🎓 Assignment Completion
 
@@ -482,7 +480,7 @@ This project fulfills all requirements:
 
 ✅ Sentiment Analysis with keyword extraction
 
-✅ Text Summarization using Transformer (Groq/Mixtral)
+✅ Text Summarization using Transformer (openai/gpt-oss-120b)
 
 ✅ Semantic Search with FAISS vector database
 
@@ -490,7 +488,7 @@ This project fulfills all requirements:
 
 ✅ Docker containerization
 
-✅ Swagger UI documentation at `/docs`
+✅ Swagger UI documentation at `localhost:8000/docs`
 
 ✅ Clean code structure and documentation
 
